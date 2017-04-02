@@ -1,5 +1,6 @@
 % iopart-num.bst -- BibTeX style for IOP journals (Harvard-like numeric style)
-% M. A. Caprio
+%
+% Mark A. Caprio
 %
 % DESCRIPTION
 %
@@ -9,7 +10,7 @@
 %
 % COPYRIGHT/LICENSE
 %
-%   Copyright 2009 M. A. Caprio
+%   Copyright 2017 Mark A. Caprio
 %
 %   This work may be distributed and/or modified under the
 %   conditions of the LaTeX Project Public License, either 
@@ -64,10 +65,11 @@
 %
 % TODO
 %
+%   -- change to RevTeX 4.1 convention: archive = "http://arxiv.org/abs", archivePrefix = "arXiv"
+%   -- provide href for doi (requested by Leo Stein, as per RevTeX 4.1)
 %   -- support for RevTeX 4.1 fields, incl. translation
 %   -- place nonnumeric value for year field at end, e.g., "at press"
 %   -- provide href for eprint (requested by Leo Stein)
-%   -- provide href for doi (requested by Leo Stein)
 %
 % LIMITATIONS
 %
@@ -76,6 +78,13 @@
 %      than follow last name
 % Other:
 %   -- hyphenated first name loses hyphen
+%
+% FOR NEW RELEASE
+%
+%   -- Update version number in this header comment, in comment written to .bbl file, 
+%      in iopart-num.tex, and in README.
+%   -- Generate iopart-num-long.bst.
+%   -- Regenerate iopart-num.pdf.
 
 
 %% This is file `iopart-num.bst',
@@ -158,6 +167,7 @@ ENTRY
     transissue
     transpages
     transyear
+    eprinturl
   }
   {}
   { label }
@@ -629,6 +639,10 @@ FUNCTION {format.eprint}
       archive empty$
         'skip$
         { "[" * archive * "]" * }
+      if$
+      eprinturl empty$
+        { "[" * "http://arxiv.org/abs/" * eprint * "]" * }  % default to arXiv URL
+        { "[" * eprinturl * "]" * }  % use override url
       if$
       "{" * swap$ * "}" *
       *
@@ -1724,10 +1738,13 @@ FUNCTION {begin.bib}
   write$ newline$
   "\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi"
   write$ newline$
-%%  "\providecommand{\eprint}[2][]{\url{#2}}"
+  "\providecommand{\href}[2]{#1}  % in case hyperref not loaded"
+  write$ newline$
   "% \eprint[archive=arXiv]{identifier}"
+  %%"% \eprint[archive=arXiv][url=]{identifier}"
   write$ newline$
   "\providecommand{\eprint}[2][arXiv]{#1:\linebreak[0]#2}"
+  %%"\providecommand{\eprint}[3][arXiv][]{\href{#2}{#1:\linebreak[0]#3}}"
   write$ newline$
   "% Bibliography created with iopart-num v2.1+"
   write$ newline$
