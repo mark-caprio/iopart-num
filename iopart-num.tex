@@ -1,0 +1,202 @@
+\documentclass[12pt]{iopart}
+
+\bibliographystyle{iopart-num}
+\usepackage{cite}
+
+%%\usepackage[numbers,square,sort&compress]{natbib}
+
+
+\newcommand{\BibTeX}{Bib\TeX}
+\newcommand{\REVTeX}{REV\TeX}
+
+\sloppy 
+
+\begin{document}
+\nocite{*}
+
+\title{The \texttt{iopart-num} \BibTeX{} style}
+
+\noindent \qquad \\[-6pt] \qquad Version 2.2\\\qquad February 2, 2016
+
+\author{M~A~Caprio}
+
+\address{Department of Physics, University of Notre Dame,
+Notre Dame, Indiana 46556-5670, USA}
+
+\section{Introduction}
+
+The \texttt{iopart-num} \BibTeX{} style is intended for use in
+preparing manuscripts for Institute of Physics Publishing (IOPP) journals,
+including Journal of Physics.  It provides numeric citation with
+Harvard-like formatting, based upon the specifications in the IOPP author guidelines ``How to
+prepare and submit an article for publication in an IOP Publishing journal using
+\LaTeXe'' (February 2014) at \texttt{http://authors.iop.org}.
+The \texttt{iopart-num} style is compatible with the \texttt{iopart}
+document class, but it may be used with other document classes as well.
+
+The \texttt{iopart-num} package is available on the Comprehensive
+\TeX{} Archive Network (CTAN) as \texttt{/biblio/bibtex/contrib/iopart-num}.
+
+\section{General instructions}
+
+To use the \texttt{iopart-num} style, include the command
+\verb+\bibliographystyle{iopart-num}+ in the document preamble.
+Alternatively, if you wish to include the titles of journal articles
+in the bibliographic entries, use
+\verb+\bibliographystyle{iopart-num-long}+ (titles are optional in
+most IOPP journals but required for some).
+
+As usual for \BibTeX{}, the reference section is then inserted into
+the document with the command \verb+\bibliography{...}+, where the
+names of the necessary \BibTeX{} database files should be listed
+between the braces.  Further general instructions on using \BibTeX{}
+may be found in the \BibTeX{} documentation.
+
+Some usage details depend upon whether or not \texttt{iopart-num} is
+being used with the \texttt{natbib} package.  If your document is
+being prepared with the \texttt{iopart} document class but
+\textit{without} \texttt{natbib}, the section header for the
+references must be manually inserted, with the command
+\verb+\section*{References}+.  In this case, you may wish to use the
+\texttt{cite} package to produce sorted and compressed lists of
+references in the text.  If your document is being prepared with the
+\texttt{iopart} document class and \textit{with} \texttt{natbib}, the
+``References'' section header will be generated automatically.  You
+may wish to load the \texttt{natbib} package with the options
+\verb+numbers+, \verb+square+, and \verb+sort&compress+ to ensure
+proper formatting of the references in the text, as
+\verb+\usepackage[numbers,square,sort&compress]{natbib}+.
+
+\section{Special bibliographic data fields}
+
+\subsection{Journal sections}
+
+Under IOPP style conventions, journal names should be set in italic
+type.  However, for journals with multiple lettered sections, the IOPP
+convention is that the journal section letter should appear in roman
+type after the main journal name, \textit{e.g.}, ``\textit{J.\
+Phys.\/} A''.  Most existing \BibTeX{} styles do not make special
+provision for lettered sections.  Therefore, typically, the section
+letter is either included as part of the journal name
+\begin{verbatim}
+  journal = "J. Phys. A",
+  volume = "38",
+\end{verbatim}
+or as part of the volume number
+\begin{verbatim}
+  journal = "J. Phys.",
+  volume = "A38",
+\end{verbatim}
+in the \BibTeX{} database entry.  The \texttt{iopart-num} style
+instead introduces a new optional field \verb+section+ which can be
+used to specify a journal section letter.  This section letter is set in
+roman type.  Moreover, if the section letter already appears in
+\textit{any} of the usual locations in the database entry (at the end
+of the journal name, before the volume number, or after the volume
+number),
+\texttt{iopart-num} will recognize it and suppress its printing.
+Therefore, when you are creating the
+\BibTeX{} database entry for an article in a lettered journal section,
+you can still include the section letter in the \verb+journal+ or
+\verb+volume+ fields, for use with other \BibTeX{} styles, 
+without adversely affecting the formatting for IOPP journals.  For
+example, the entry for ref.~\cite{caprio2005:coherent} can be
+generated with
+\begin{verbatim}
+  journal = "J. Phys. A",
+  section = "A",
+  volume = "38",
+\end{verbatim}
+or
+\begin{verbatim}
+  journal = "J. Phys.",
+  section = "A",
+  volume = "A38",
+\end{verbatim}
+or simply
+\begin{verbatim}
+  journal = "J. Phys.",
+  section = "A",
+  volume = "38",
+\end{verbatim}
+in the \BibTeX{} database entry.  Note that section names longer than a
+single letter are also supported (\textit{e.g.},
+``\textit{Phys. Rev.\/} ST Accel. Beams'').
+
+\subsection{Journal issue numbers}
+
+Journal issue numbers are not customarily included in references to
+journal articles under the IOPP formatting conventions.
+Therefore, the
+\texttt{iopart-num} style ignores the
+\verb+number+ field for articles.  
+However, in some periodicals (such as popular magazines or certain
+journal online supplements), pagination restarts from 1 with each
+issue.  For such periodicals, the issue number is an essential part of
+the bibliographic information needed to identify an article.  The
+\texttt{iopart-num} style therefore supports an additional field
+\verb+issue+ in the \BibTeX{} database entry, which can be used to 
+enforce printing of the issue number.  If a value is specified for
+\verb+issue+, this value is included included parenthetically after the volume
+number in the reference, as in
+ref.~\cite{zamfir2005:132te-beta-enam04}.
+
+\subsection{Multivolume books}
+
+The IOPP guidelines distinguish between a volume
+in a {\it series}
+and a volume of a {\it  multivolume book} or {\it set}.  For a volume in
+a series, the series title and volume number are given in parentheses
+after the book title~\cite{ex8}.
+For an individual volume in a multivolume book, the book title is
+given first, followed by the volume number and volume title~\cite{ex9}.
+
+The
+\texttt{iopart-num} style supports an additional field
+\verb+volumetitle+ in the \BibTeX{} database entry, which can be used to 
+specify the title for an individual volume of a multivolume
+book, as in refs.~\cite{ex9,bohr1998:v2}.  For example, the entry for
+ref.~\cite{bohr1998:v2} is generated with
+\begin{verbatim}
+  title = "Nuclear Structure",
+  volume = 2,
+  volumetitle = "Nuclear Deformations",
+\end{verbatim}
+in the \BibTeX{} database entry.  In contrast, most existing \BibTeX{} styles 
+allow you to reference a volume of a multivolume
+book by specifying \verb+title+ and
+\verb+volume+, as in
+refs.~\cite{ex7,siegbahn1965:v1}, but do not provide for inclusion of
+any specific title for the individual volume.  A volume in a
+series~\cite{ex8,iachello2006:liealg} is indicated in
+\texttt{iopart-num}, as in most other \BibTeX{}
+styles, 
+by specifying
+\verb+title+, \verb+volume+, and
+\verb+series+ in the \BibTeX{} database entry.  
+
+\subsection{E-prints, collaborations, and other \REVTeX{} data fields}
+
+The \texttt{iopart-num} style supports several additional data fields
+(\verb+archive+, \verb+collaboration+, \verb+eid+, \verb+eprint+, 
+\verb+numpages+, and \verb+url+) introduced in
+\REVTeX{}~4.
+
+
+\section{Examples}
+
+The entries in the reference list below provide examples of the
+formatting of various types of references, of varying complexity,
+including journal articles, articles in proceedings or collections,
+books (individual, multivolume, or in a series), theses, and
+unpublished references.  The
+\BibTeX{} database entries used to generate these examples can be
+found in the file \texttt{iopart-num.bib}.
+Refs.~\cite{ex1,ex2,ex3,ex4,ex5,ex6,ex7,ex8,ex9} are based upon example entries
+from the IOPP guidelines.
+
+\section*{References}
+\bibliography{iopart-num}
+
+\end{document}
+

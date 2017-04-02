@@ -1,0 +1,288 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% examples from IOP LaTeX guidelines
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@article{ex1,
+  author = "A. Cisneros",
+  journal = "Astrophys. Space Sci.",
+  volume = 10,
+  pages = 87,
+  year = 1971
+}
+
+% With title:
+%
+%% article{ex1,
+%%   author = "A. Cisneros",
+%%   title = "Effect of neutrino magnetic moment on solar neutrino observations",
+%%   journal = "Astrophys. Space Sci.",
+%%   volume = 10,
+%%   pages = 87,
+%%   year = 1971
+%% }
+
+@article{ex2,
+  author = "S. Carlip and R. Vera",
+  journal = "Phys. Rev. D",
+  section = "D",
+  volume = 58,
+  pages = 011345,
+  year = 1998
+}
+
+% NOTE: The article Carlip and Vera 1998 does not exist.  
+% So title cannot be provided!
+% Inspec search on author pair is null.  
+% Nearest replacement is Carlip and Nelson 1999.
+%
+%   http://dx.doi.org/10.1103/PhysRevD.55.878
+%
+%% article{ex2,
+%%   author = "S. Carlip and J. E. Nelson",
+%%   title = "Quantum modular group in $(2+1)$-dimensional gravity",
+%%   journal = "Phys. Rev. D",
+%%   section = "D",
+%%   volume = 59,
+%%   pages = 024012,
+%%   year = 1999
+%% }
+
+@article{ex3,
+  author = "K. Davies and G. Brown",
+  journal = "J. High Energy Phys.",
+  pages = "JHEP12(1997)002",
+  year = 1997
+}
+
+% NOTE: The article Davies and Brown 1997 does not exist.
+% The bibliographic info corresponds to an article "Black hole 
+% entropy in M-Theory" by Juan Maldacena, Andrew Strominger 
+% and Edward Witten.
+%
+%  http://dx.doi.org/10.1088/1126-6708/1997/12/002
+%
+% Inspec search on author pair is negative.
+%
+% Note braces in title to preserve capitalization.
+%
+%% article{ex3,
+%%   author = "J. Maldacena and A. Strominger and E. Witten",
+%%   title = "Black hole entropy in {M}-{T}heory",
+%%   journal = "J. High Energy Phys.",
+%%   pages = "JHEP12(1997)002",
+%%   year = 1997
+%% }
+
+@article{ex4,
+  author = "D. Neilson and M. Choptuik",
+  journal = "Class. Quantum Grav.",
+  volume = 17,
+  pages = 761,
+  year = 2000,
+  eprint = "gr-qc/9812053"
+}
+
+% NOTE: IOPLaTeXGuidelines version is missing middle initials.
+%
+% http://dx.doi.org/10.1088/0264-9381/17/4/303
+% http://arxiv.org/abs/gr-qc/9812053
+%
+%% article{ex4,
+%%   author = "D. W. Neilson and M. W. Choptuik",
+%%   title = "Critical phenomena in perfect fluids",
+%%   journal = "Class. Quantum Grav.",
+%%   volume = 17,
+%%   pages = 761,
+%%   year = 2000,
+%%   eprint = "gr-qc/9812053"
+%% }
+
+@unpublished{ex5,
+  author = "M. Harrison",
+  title = "Dipheomorphism-invariant manifolds",
+  year = 1999,
+  eprint = "hep-th/9909196"
+}
+
+% NOTE: This preprint reference Harrison 1999 does not exist.
+%
+% The bibliographic info corresponds to Ohta 
+% http://arxiv.org/abs/hep-th/9909196
+%
+%% unpublished{ex5,
+%%   author = "Y. Ohta",
+%%   title = "Instanton Correction of Prepotential in {R}uijsenaars Model Associated with {$N=2$} {SU(2)} {S}eiberg-{W}itten Theory",
+%%   year = 1999,
+%%   eprint = "hep-th/9909196"
+%% }
+
+
+@inbook{ex6,
+  author = "L. I. Dorman",
+  title = "Variations of Galactic Cosmic Rays",
+  publisher = "Moscow State University Press",
+  address = "Moscow",
+  year = 1975,
+  pages = 103
+}
+
+
+@inbook{ex7,
+  author = "R. Caplar and P. Kulisic",
+  title = "Proc. Int. Conf. on Nuclear Physics (Munich)",
+  publisher = "North-Holland/American Elsevier",
+  address = "Amsterdam",
+  year = 1973,
+  volume = 1,
+  pages = 517
+}
+
+% To add diacriticals, title, and editors, this must become incollection:
+%
+%% incollection{ex7,
+%%   author = "R. {\v{C}}aplar and P. Kuli{\v{s}}i{\'c}",
+%%   title = "Pre-equilibrium processes in $(n,\alpha)$ and $(p,\alpha)$ reactions",
+%%   booktitle = "Proc. Int. Conf. on Nuclear Physics (Munich)",
+%%   editor = "de Boer, J. and H. J. Mang",
+%%   publisher = "North-Holland/American Elsevier",
+%%   address = "Amsterdam",
+%%   year = 1973,
+%%   volume = 1,
+%%   pages = 517
+%% }
+
+@incollection{ex8,
+  author = "M. Morse",
+  title = "Supersonic beam sources",
+  booktitle = "Atomic Molecular and Optical Physics",
+  editor = "F. B. Dunning and R. Hulet",
+  series = "Experimental Methods in the Physical Sciences",
+  volume = 29,
+  publisher = "Academic",
+  address = "San Diego",
+  year = 1996
+}
+
+@book{ex9,
+  title = "Gulf War and Health",
+  volume = 1,
+  volumetitle = "Depleted Uranium, Pyridostigmine Bromide, Sarin, and Vaccines",
+  editor = "C. E. Fulco and C. T. Liverman and H. C. Sox",
+  publisher = "The National Academies Press",
+  address = "Washington, DC",
+  year = 2000
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% further examples for iopart-num
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@article{bardeen1957:bcs,
+  author = "J. Bardeen and L. N. Cooper and J. R. Schrieffer",
+  title = "Theory of superconductivity",
+  journal = "Phys. Rev.",
+  volume = 108,
+  number = 5,
+  pages = 1175,
+  year = 1957
+}
+
+@article{caprio2005:coherent,
+  author = "M. A. Caprio",
+  title =  "Application of the coherent state formalism to
+                  multiply excited states",
+  journal = "J. Phys. A",
+  section = "A",
+  volume = 38,
+  number = 28,
+  pages = 6385,
+  year =  2005
+}
+
+@article{zamfir2005:132te-beta-enam04,
+  author = "N. V. Zamfir and others",
+  title =  "$^{132}\mathrm{Te}$ and single-particle density
+                  dependent pairing",
+  journal = "Eur. Phys. J. A",
+  section = "A",
+  volume = 25,
+  number = "s01",
+  issue = "s01",
+  year = 2005,
+  pages = 389
+}
+
+@book{rose1957:am,
+  author = "M. E. Rose",
+  title = "Elementary Theory of Angular Momentum",
+  publisher = "Wiley",
+  address = "New York",
+  year = 1957,
+}
+
+@book{dirac1958:qm,
+  author = "P. A. M. Dirac",
+  title = "The Principles of Quantum Mechanics",
+  series = "The International Series of Monographs on Physics",
+  number = 27,
+  edition = 4,
+  publisher = "Clarendon Press",
+  address = "Oxford",
+  year = 1967
+}
+
+@book{iachello2006:liealg,
+  author = "F. Iachello", 
+  title = "Lie Algebras and Applications",
+  publisher = "Springer",
+  series = "Lecture Notes in Physics",
+  volume = 708,
+  address = "Berlin",
+  year = 2006
+}
+
+@book{siegbahn1965:v1,
+  editor = "K. Siegbahn",
+  title = "Alpha-, Beta-, and Gamma-Ray Spectroscopy",
+  booktitle = "Alpha-, Beta-, and Gamma-Ray Spectroscopy",
+  publisher = "North-Holland",
+  address = "Amsterdam",
+  year = 1965,
+  volume = 1
+}
+
+@book{bohr1998:v2,
+  author = "A. Bohr and B. R. Mottelson",
+  title = "Nuclear Structure",
+  volume = 2,
+  volumetitle = "Nuclear Deformations",
+  publisher = "World Scientific",
+  address = "Singapore",
+  year = "1998"
+}
+
+@article{alaga1955:branching,
+  author = "G. Alaga and K. Alder and A. Bohr and B. R. Mottelson",
+  title = "Intensity rules for beta and gamma transitions to nuclear rotational states",
+  journal = "Mat. Fys. Medd. Dan. Vid. Selsk.",
+  volume = 29,
+  number = 9,
+  issue = 9,
+  year = 1955
+}
+
+@phdthesis{caprio2003:diss,
+  author = "M. A. Caprio",
+  title = "Structure of collective modes in transitional and deformed nuclei",
+  school = "Yale University",
+  year = 2003,
+  eprint = "nucl-ex/0502004",
+  archive = "arXiv"
+}
+
+@misc{doePC,
+  author = "J. Doe",
+  year = 2006,
+  note = "private communication"
+}
+
